@@ -79,7 +79,7 @@ export default function RawMaterials() {
     <Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
         <Typography variant="h5" sx={{ fontWeight: 'bold', color: 'primary.main' }}>
-          Catalog Raw Materials
+          Raw Materials Catalog
         </Typography>
         <Button 
           variant="contained" 
@@ -135,7 +135,7 @@ export default function RawMaterials() {
 
 
       <Dialog open={open} onClose={handleClose} fullWidth maxWidth="sm">
-        <DialogTitle>{editingCode ? 'Editar Matéria-Prima' : 'Nova Matéria-Prima'}</DialogTitle>
+        <DialogTitle>{editingCode ? 'Edit Raw Material' : 'New Raw Material'}</DialogTitle>
         <DialogContent dividers>
           <TextField
             autoFocus
@@ -161,9 +161,9 @@ export default function RawMaterials() {
           />
         </DialogContent>
         <DialogActions sx={{ p: 2 }}>
-          <Button onClick={handleClose} color="inherit">Cancelar</Button>
+          <Button onClick={handleClose} color="inherit">Cancel</Button>
           <Button onClick={handleSubmit} variant="contained" color="primary">
-            Salvar
+            Save
           </Button>
         </DialogActions>
       </Dialog>
