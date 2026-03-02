@@ -6,9 +6,12 @@ import { store } from './store';
 import { appTheme } from './theme';
 import Layout from './components/Layout';
 
-const RawMaterialsView = () => <h2>Raw Materials Catalog (RF006)</h2>;
-const ProductsView = () => <h2>Register Products and Associations (RF005 / RF007)</h2>;
-const ProductionView = () => <h2>Production Suggestion (RF008)</h2>;
+// Importando a página recém-criada
+import RawMaterials from './pages/RawMaterials';
+
+// Componentes temporários restantes
+const ProductsView = () => <h2>Cadastro de Produtos e Fórmulas (RF005 / RF007)</h2>;
+const ProductionView = () => <h2>Sugestão de Produção (RF008)</h2>;
 
 function App() {
   return (
@@ -17,10 +20,12 @@ function App() {
         <Router>
           <Layout>
             <Routes>
-              <Route path="/" element={<Navigate to="/products" replace />} />
-              <Route path="/raw-materials" element={<RawMaterialsView />} />
+              {/* Agora aponta para o componente real */}
+              <Route path="/raw-materials" element={<RawMaterials />} />
+              
               <Route path="/products" element={<ProductsView />} />
               <Route path="/production" element={<ProductionView />} />
+              <Route path="/" element={<Navigate to="/raw-materials" replace />} />
             </Routes>
           </Layout>
         </Router>
