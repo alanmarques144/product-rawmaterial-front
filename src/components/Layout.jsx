@@ -19,7 +19,6 @@ export default function Layout({ children }) {
   const navigate = useNavigate();
   const location = useLocation();
   
-
   const [open, setOpen] = useState(true);
 
   const toggleDrawer = () => {
@@ -33,15 +32,15 @@ export default function Layout({ children }) {
   ];
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', minHeight: '100vh' }}>
       <CssBaseline />
       
-
+      {/* App Bar Superior */}
       <AppBar 
         position="fixed" 
         sx={{ 
           zIndex: (theme) => theme.zIndex.drawer + 1,
-          backgroundColor: theme.palette.primary.main 
+          backgroundColor: theme.palette.primary.main
         }}
       >
         <Toolbar>
@@ -60,6 +59,7 @@ export default function Layout({ children }) {
         </Toolbar>
       </AppBar>
 
+ 
       <Drawer
         variant="persistent"
         anchor="left"
@@ -70,8 +70,8 @@ export default function Layout({ children }) {
           '& .MuiDrawer-paper': { 
             width: drawerWidth, 
             boxSizing: 'border-box',
-            backgroundColor: theme.palette.primary.main, 
-            color: '#ffffff', 
+            backgroundColor: theme.palette.primary.main,
+            color: '#ffffff',
             borderRight: 'none'
           },
         }}
@@ -92,7 +92,7 @@ export default function Layout({ children }) {
                   <ListItemButton
                     onClick={() => navigate(item.path)}
                     sx={{
-                      backgroundColor: isActive ? 'rgba(3, 218, 198, 0.15)' : 'transparent', 
+                      backgroundColor: isActive ? 'rgba(3, 218, 198, 0.15)' : 'transparent',
                       borderRight: isActive ? `4px solid ${theme.palette.secondary.main}` : '4px solid transparent',
                       '&:hover': {
                         backgroundColor: 'rgba(255, 255, 255, 0.08)',
@@ -122,18 +122,37 @@ export default function Layout({ children }) {
         component="main" 
         sx={{ 
           flexGrow: 1, 
-          p: 3, 
+          display: 'flex',
+          flexDirection: 'column', 
+          alignItems: 'stretch', 
           backgroundColor: theme.palette.background.default, 
-          minHeight: '100vh',
           transition: theme.transitions.create('margin', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
           }),
-          marginLeft: open ? 0 : `-${drawerWidth}px`, 
+          marginLeft: open ? 0 : `-${drawerWidth}px`,
         }}
       >
-        <Toolbar />
-        {children}
+        <Toolbar /> 
+        
+        <Box sx={{ p: 3, flexGrow: 1 }}>
+          {children}
+        </Box>
+
+        <Box 
+          component="footer" 
+          sx={{ 
+            p: 2, 
+            textAlign: 'center', 
+            backgroundColor: theme.palette.primary.main,
+            color: 'rgba(255,255,255,0.7)',
+            marginTop: 'auto'
+          }}
+        >
+          <Typography variant="body2">
+            &copy; {new Date().getFullYear()} Production Suggestion System - Challenge (Plastics Industry). Developed by Alan.
+          </Typography>
+        </Box>
       </Box>
     </Box>
   );
