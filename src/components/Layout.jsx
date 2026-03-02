@@ -27,7 +27,7 @@ export default function Layout({ children }) {
 
   const navItems = [
     { label: 'Raw Materials', path: '/raw-materials', icon: <InventoryIcon /> },
-    { label: 'Products and Associations', path: '/products', icon: <CategoryIcon /> },
+    { label: 'Products and Formulas', path: '/products', icon: <CategoryIcon /> },
     { label: 'Production Suggestion', path: '/production', icon: <PrecisionManufacturingIcon /> }
   ];
 
@@ -150,7 +150,7 @@ export default function Layout({ children }) {
           }}
         >
           <Typography variant="body2">
-            &copy; {new Date().getFullYear()} Production Suggestion System - Challenge (Plastics Industry). Developed by Alan.
+            &copy; {new Date().getFullYear()} Production Suggestion System - Challenge (Plastics Industry). Developed by Alan Bezerra.
           </Typography>
         </Box>
       </Box>

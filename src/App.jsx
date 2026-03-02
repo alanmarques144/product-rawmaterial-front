@@ -6,11 +6,11 @@ import { store } from './store';
 import { appTheme } from './theme';
 import Layout from './components/Layout';
 
-// Importando a página recém-criada
 import RawMaterials from './pages/RawMaterials';
+import Products from './pages/Products';
 
-// Componentes temporários restantes
-const ProductsView = () => <h2>Cadastro de Produtos e Fórmulas (RF005 / RF007)</h2>;
+
+
 const ProductionView = () => <h2>Sugestão de Produção (RF008)</h2>;
 
 function App() {
@@ -22,8 +22,7 @@ function App() {
             <Routes>
               {/* Agora aponta para o componente real */}
               <Route path="/raw-materials" element={<RawMaterials />} />
-              
-              <Route path="/products" element={<ProductsView />} />
+              <Route path="/products" element={<Products />} />
               <Route path="/production" element={<ProductionView />} />
               <Route path="/" element={<Navigate to="/raw-materials" replace />} />
             </Routes>
