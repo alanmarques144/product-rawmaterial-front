@@ -8,10 +8,7 @@ import Layout from './components/Layout';
 
 import RawMaterials from './pages/RawMaterials';
 import Products from './pages/Products';
-
-
-
-const ProductionView = () => <h2>Sugestão de Produção (RF008)</h2>;
+import Production from './pages/Production';
 
 function App() {
   return (
@@ -23,7 +20,7 @@ function App() {
               {/* Agora aponta para o componente real */}
               <Route path="/raw-materials" element={<RawMaterials />} />
               <Route path="/products" element={<Products />} />
-              <Route path="/production" element={<ProductionView />} />
+              <Route path="/production" element={<Production />} />
               <Route path="/" element={<Navigate to="/raw-materials" replace />} />
             </Routes>
           </Layout>
